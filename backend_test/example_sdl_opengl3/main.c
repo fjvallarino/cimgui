@@ -7,8 +7,13 @@
 #ifdef _MSC_VER
 #include <windows.h>
 #endif
+#if __APPLE__
+#include <OpenGL/gl.h>
+#include <GLUT/glut.h>
+#else
 #include <GL/gl.h>
 #include <GL/glu.h>
+#endif
 
 #ifdef IMGUI_HAS_IMSTR
 #define igBegin igBegin_Str

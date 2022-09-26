@@ -60,9 +60,11 @@ list(APPEND IMGUI_SOURCES ${BAKENDS_FOLDER}imgui_impl_opengl3.cpp)
 include_directories(../../imgui/examples/libs/gl3w)
 if(WIN32)
        list(APPEND IMGUI_LIBRARIES opengl32)
-else(WIN32)#Unix
+elseif(APPLE)
+       list(APPEND IMGUI_LIBRARIES "-framework OpenGL")
+elseif(UNIX) #Unix
        list(APPEND IMGUI_LIBRARIES GL)
-endif(WIN32)
+endif(UNIX)
 
 
 #sdl2
